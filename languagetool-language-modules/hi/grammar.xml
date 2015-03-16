@@ -212,7 +212,6 @@ USA
             <example type="correct">वहा का द़ृश्य इतना मनोरम था <marker>जैसे </marker>स्वर्ग हो ।</example>
             <example type="incorrect" correction="जैसे">वहा का द़ृश्य इतना मनोरम था <marker>जैसे कि</marker>स्वर्ग हो ।</example>
         </rule>		
-		कौन आई
 		<rule id="कौन_आई" name="कौन आई ">
             <pattern>
                 <token >कौन</token>

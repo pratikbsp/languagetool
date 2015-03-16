@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../../../../../../../languagetool-core/src/main/resources/org/languagetool/rules/print.xsl" ?>
+<?xml-stylesheet type="text/css" href="../../../../../../../../../languagetool-core/src/main/resources/org/languagetool/rules/rules.css"
+        title="Easy editing stylesheet" ?>
+<!--
+Hindi Rules for LanguageTool
+Copyright (C) 2015 Pratik Saxena
+
+Portions of rules are converted from After The Deadline grammar checker, 
+available at http://open.afterthedeadline.com/, licensed under
+GNU GPL.
+
+This library is free software; you can redistribute it and/or
+modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either
+version 2.1 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public
+License along with this library; if not, write to the Free Software
+Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301
+USA
+
+-->
+
+<!--suppress CheckTagEmptyBody -->
+<!DOCTYPE rules [
+    <!ENTITY weekdays "Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday">
+    <!ENTITY abbrevWeekdays "Mon|Mo|Tue|Tu|Wed|We|Thu|Th|Fri|Fr|Sat|Sa|Sun|Su">
+    <!ENTITY months "January|February|March|April|May|June|July|August|September|October|November|December">
+    <!ENTITY abbrevMonths "Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec">
+]>
+
+<rules lang="en" xsi:noNamespaceSchemaLocation="../../../../../../../../../languagetool-core/src/main/resources/org/languagetool/rules/rules.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <!-- ====================================================================== -->
+    <!-- Possible typos -->
+    <!-- ====================================================================== -->
+        
+    <category name="Possible Typo" type="misspelling">
+		<rule id="‌बस_जरा_सा" name="बस थोड़ा‌सा (बस जरा सा)">
+            <pattern>
+				<token>बस </token>
+                <token >जरासा</token>
+            </pattern>
+            <message>क्या आपका तात्पर्य <suggestion>बस जरा सा</suggestion> से हैं ? क्योँकि जरासा एक गलत शब्द है।</message>
+            <example type="incorrect">मेरा<marker>बस जरा सा</marker>काम बचा है।</example>
+			<example type="correct">मेरा<marker>बस जरासा</marker>काम बचा है।</example>
+        </rule>		
+		<rule id="की‌_कि" name=" की‌ (कि)">
+            <pattern>
+                <token regexp="yes" >कहा|सुना|देखा ‌ </token>
+				<token>की</token>
+            </pattern>
+            <message>क्या आपका तात्पर्य <suggestion> कि</suggestion> से हैं ? इस प्रकार के वाक्यो में की के बदले कि का प्रयोग किया जाता है। </message>
+            <example type="correct">उसने उससे <marker>कहा कि</marker>उसकी कार खराब है।</example>
+            <example type="incorrect" correction="कहा कि">उसने उससे <marker>कहा की</marker>उसकी कार खराब है।</example>
+        </rule>		
+		<rule id="उस_की" name="उस की (उसकी) ">
+            <pattern>
+                <token regexp="yes" >उस|जिस|इस </token>
+				<token >की </token>
+            </pattern>
+            <message>इस प्रकार क़े वाक्यो मॆं दो शब्द क़े स्थान पर एक वाक्य उदा.<suggestion>उसकी,जिसकी</suggestion>आदि  का प्रयोग करते हैं।</message>
+            <example type="correct">राम ने कहा कि<marker>उसकी</marker>कार खराब है।</example>
+            <example type="incorrect" correction="उसकी">राम ने कहा <marker>उस की</marker>कार खराब है।</example>
+        </rule>
+			<rule id="कि‌_की" name="कि‌ (की) ">
+            <pattern>
+                <token >कि</token>
+            </pattern>
+            <message>क्या आपका तात्पर्य <suggestion>की</suggestion>से हैं ?</message>
+            <example type="correct">राम<marker>की</marker>कार सफेद रंग की है।</example>
+            <example type="incorrect" correction="की">राम<marker>कि</marker>कार सफेद रंग की है ।</example>
+        </rule>
+		<rule id="क्यों_कि" name="क्यों कि (क्योंकि) ">
+            <pattern>
+                <token >क्यों </token>
+				<token >कि</token>
+            </pattern>
+            <message>क्या आपका तात्पर्य <suggestion>क्योंकि</suggestion>से हैं ?</message>
+            <example type="correct">यहा जाना मना है<marker>क्योंकि</marker>यहा प्रवेश निषेध है ।</example>
+            <example type="incorrect" correction="क्योंकि">यहा जाना मना है<marker>क्यों कि</marker>यहा प्रवेश निषेध है ।</example>
+        </rule>	
+		<rule id="उस‌_और_ओर" name="उस और (उस ऒर) ">
+            <pattern>
+                <token >उस</token>
+				<token >और</token>
+            </pattern>
+            <message>क्या आपका तात्पर्य <suggestion>उस ऒर</suggestion>से हैं ?</message>
+            <example type="correct">मुझे <marker>उस ऒर</marker>जाना है।</example>
+            <example type="incorrect" correction="उस ऒर">मुझे<marker>उस और</marker>जाना है।</example>
+        </rule>		
+		<rule id="और_," name="और, (और) ">
+            <pattern>
+                <token >और</token>
+				<token >,</token>
+            </pattern>
+            <message>क्या आपका तात्पर्य <suggestion>और</suggestion>से हैं ?</message>
+            <example type="correct">राम<marker>और</marker>श्याम अच्छे मित्र है ।</example>
+            <example type="incorrect" correction="और">राम<marker>और,</marker>श्याम अच्छे मित्र है ।</example>
+        </rule>		
+		<rule id="अति_अधिक" name="अति अधिक (अत्यधिक) ">
+            <pattern>
+                <token >अति</token>
+				<token >अधिक</token>
+            </pattern>
+            <message>क्या आपका तात्पर्य <suggestion>अत्यधिक</suggestion>से हैं ?</message>
+            <example type="correct">किसी भी चीज का <marker>अत्यधिक</marker>सेवन करना हानिकारक होता है ।</example>
+            <example type="incorrect" correction="अत्यधिक">किसी भी चीज का<marker>अति अधिक</marker>सेवन करना हानिकारक होता है ।</example>
+        </rule>		
+		<rule id="जनम_दिन" name="जनम दिन (जन्मदिन)">
+            <pattern>
+                <token >जनम</token>
+				<token >दिन</token>
+            </pattern>
+            <message>क्या आपका तात्पर्य <suggestion>जन्मदिन</suggestion>से हैं ?</message>
+            <example type="correct">जनम के दिन को<marker>जन्मदिन</marker>कहा जाता है ।</example>
+            <example type="incorrect" correction="जन्मदिन">जनम के दिन को<marker>जनम दिन</marker>कहा जाता है।</example>
+        </rule>		
+		<rule id="है_हैं" name="है (हैं) ">
+            <pattern>
+                <token >रहे</token>
+				<token >है</token>
+            </pattern>
+            <message>क्या आपका तात्पर्य <suggestion>रहे हैं </suggestion>से हैं ?</message>
+            <example type="correct">राम और श्याम बाहर जा<marker>रहे हैं</marker>।</example>
+            <example type="incorrect" correction="रहे हैं">राम और श्याम बाहर जा<marker>रहे है</marker>।</example>
+        </rule>		
+		<rule id="यदा_तथा" name="यदा तथा(यदा तदा) ">
+            <pattern>
+                <token >यदा</token>
+				<token >तथा</token>
+            </pattern>
+            <message>क्या आपका तात्पर्य <suggestion>यदातदा</suggestion>से हैं ?</message>
+            <example type="correct">सुनसान रास्तों में<marker>यदातदा</marker>नहीं जाना चाहियें ।</example>
+            <example type="incorrect" correction="यदातदा">सुनसान रास्तों में<marker>यदा तथा</marker>नहीं जाना चाहियें ।</example>
+        </rule>		
+		<rule id="यत्र_तत्र" name="यत्र‌ तत्र (यत्र‌तत्र) ">
+            <pattern>
+                <token >यत्र</token>
+				<token >तत्र</token>
+            </pattern>
+            <message>क्या आपका तात्पर्य <suggestion>यत्रतत्र</suggestion>से हैं ?</message>
+            <example type="correct">ईश्वर का वास<marker>यत्रतत्र</marker>सर्वत्र है ।</example>
+            <example type="incorrect" correction="यत्रतत्र">ईश्वर का वास<marker>यत्र‌ तत्र</marker>सर्वत्र है ।</example>
+        </rule>		
+			
+		<rule id="सब‌_से" name="सब से (सबसे) ">
+            <pattern>
+                <token >सब</token>
+				<token >से</token>
+            </pattern>
+            <message>क्या आपका तात्पर्य <suggestion>सबसे</suggestion>से हैं ?</message>
+            <example type="correct"><marker>सबसे</marker>पूछताछ की गई,परंतु अपराधी का कुछ भी पता नहीं चला।  </example>
+            <example type="incorrect" correction="सबसे"><marker>सब से</marker>पूछताछ की गई,परंतु अपराधी का कुछ भी पता नहीं चला। </example>
+        </rule>		
+		<rule id="पीता_पिता" name="पीता (पिता) ">
+            <pattern>
+                <token regexp="yes">मेरे|तुम्हारे|हमारे|उसके|उनके</token>
+				<token >पीता</token>
+            </pattern>
+            <message>क्या आपका तात्पर्य <suggestion>पिता</suggestion>से हैं ?</message>
+            <example type="correct">मेरे<marker>पिता</marker>दिल्ली में रहते है ।</example>
+            <example type="incorrect" correction="पिता">मेरे<marker>पीता</marker>दिल्ली में रहते है ।</example>
+        </rule>		
+		<rule id="अरे_वाह‌" name="अरे वाह (अरे वाह!) ">
+            <pattern>
+                <token >अरे</token>
+				<token >वाह</token>
+            </pattern>
+            <message>क्या आपका तात्पर्य <suggestion>अरे वाह!</suggestion>से हैं ?</message>
+            <example type="correct"><marker>अरे वाह!</marker>भारत मैच जीत गया ।</example>
+            <example type="incorrect" correction="अरे वाह!"><marker>अरे वाह</marker>भारत मैच जीत गया ।</example>
+        </rule>	
+		<rule id="कारण" name="कारन (कारण) ">
+            <pattern>
+                <token regexp="yes" >इसका|उसका|जिसका|इसके|उसके|जिसके|किसके</token>
+				<token>कारन</token>
+            </pattern>
+            <message>क्या आपका तात्पर्य <suggestion>कारण</suggestion>से हैं ?</message>
+            <example type="correct">यह वही है <marker>जिसके कारण</marker>मुझे सफलता मिलीं।</example>h
+            <example type="incorrect" correction="कारण">यह वही है <marker>जिसके कारन</marker>मुझे सफलता मिलीं।</example>
+        </rule>		
+		<rule id="मे_मैं" name="मे ">
+            <pattern>
+                <token >समय </token>
+				<token >मैं</token>
+            </pattern>
+            <message>क्या आपका तात्पर्य <suggestion>मॆं</suggestion>से हैं ?</message>
+            <example type="correct">कठिन <marker>समय मे</marker>मन शांत रखना चहिये |</example>
+            <example type="incorrect" correction="मे">कठिन <marker>समय मैं</marker>मन शांत रखना चहिये।</example>
+        </rule>		
+		<rule id="किए_गए" name="किए गए">
+            <pattern>
+                <token >किए </token>
+				<token>गए</token>
+            </pattern>
+            <message>क्या आपका तात्पर्य <suggestion>किये गए  </suggestion>से हैं ?</message>
+            <example type="correct">राम एवम्‌ उसके परिवार  द्वारा  बहुत से परोपकार के कार्य<marker>किये गए </marker>हैं|</example>
+            <example type="incorrect" correction="किये गए ">राम एवम्‌ उसके परिवार  द्वारा  बहुत से परोपकार के कार्य<marker>किए गए</marker>हैं।</example>
+        </rule>		
+		<rule id="जैसे‌_कि" name="जैसे कि ">
+            <pattern>
+                <token >जैसे </token>
+				<token >कि</token>
+            </pattern>
+            <message><suggestion>जैसे</suggestion>के साथ कि का प्रयोग नहीं किया जाता हैं ।</message>
+            <example type="correct">वहा का द़ृश्य इतना मनोरम था <marker>जैसे </marker>स्वर्ग हो ।</example>
+            <example type="incorrect" correction="जैसे">वहा का द़ृश्य इतना मनोरम था <marker>जैसे कि</marker>स्वर्ग हो ।</example>
+        </rule>		
+		कौन आई
+		<rule id="कौन_आई" name="कौन आई ">
+            <pattern>
+                <token >कौन</token>
+				<token >आई</token>
+            </pattern>
+            <message><suggestion>कौन के साथ आया </suggestion>प्रयोग किया जाता है।</message>
+            <example type="correct">दरवाजा खोल के देखो<marker>कौन आया</marker>है।</example>
+            <example type="incorrect" correction="आया">दरवाजा खोल के देखो<marker>कौन आई </marker>है।</example>
+        </rule>		
+	</category>
+</rules>

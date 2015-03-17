@@ -41,7 +41,7 @@ USA
     <!-- ====================================================================== -->
         
     <category name="Possible Typo" type="misspelling">
-		<rule id="‌jarasa" name="बस थोड़ा‌सा (बस जरा सा)">
+		<rule id="jarasa" name="बस थोड़ा‌सा (बस जरा सा)">
             <pattern>
 				<token>बस </token>
                 <token >जरासा</token>
